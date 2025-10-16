@@ -14,16 +14,16 @@ const Contact = () => {
           Feel free to reach out!
         </p>
 
-        <div className="glass-card rounded-2xl p-8 mb-12 animate-slide-up">
+        <div className="glass-card rounded-2xl p-8 mb-12 animate-slide-up hover:border-secondary/70 transition-all duration-500">
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-glow w-full md:w-auto">
+            <Button asChild size="lg" className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 text-primary-foreground shadow-glow w-full md:w-auto transition-all duration-300 hover:scale-105">
               <a href="mailto:mehulsaxena.dev@gmail.com" className="flex items-center gap-2">
                 <Mail size={20} />
                 Email Me
               </a>
             </Button>
             
-            <Button asChild variant="outline" size="lg" className="border-primary/50 hover:bg-primary/10 w-full md:w-auto">
+            <Button asChild variant="outline" size="lg" className="border-primary/50 hover:bg-secondary/10 hover:border-secondary/70 w-full md:w-auto transition-all duration-300 hover:scale-105">
               <a href="tel:7000301634" className="flex items-center gap-2">
                 <Phone size={20} />
                 Call Me

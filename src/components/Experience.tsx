@@ -34,60 +34,88 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">
+    <section id="experience" className="py-20 px-4 relative">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center">
           Professional <span className="gradient-text">Experience</span>
         </h2>
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="glass-card rounded-2xl p-6 md:p-8 hover:border-primary/50 transition-all duration-300 animate-slide-up"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold mb-2 text-primary">{exp.company}</h3>
-                  <p className="text-xl font-semibold mb-2">{exp.position}</p>
-                </div>
-                <div className="text-muted-foreground text-sm md:text-right">
-                  <p className="font-medium">{exp.duration}</p>
-                  <p className="flex items-center gap-1 mt-1">
-                    <MapPin size={14} />
-                    {exp.location}
-                  </p>
-                  {exp.secondLocation && (
-                    <p className="flex items-center gap-1 mt-1">
-                      <MapPin size={14} />
-                      {exp.secondLocation}
-                    </p>
-                  )}
-                </div>
-              </div>
+        {/* Timeline container */}
+        <div className="relative">
+          {/* Center line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent transform -translate-x-1/2"></div>
 
-              <ul className="space-y-3 mb-6">
-                {exp.achievements.map((achievement, i) => (
-                  <li key={i} className="flex gap-3 text-muted-foreground">
-                    <span className="text-primary mt-1.5">▹</span>
-                    <span>{achievement}</span>
-                  </li>
-                ))}
-              </ul>
+          {/* Timeline items */}
+          <div className="space-y-16">
+            {experiences.map((exp, index) => {
+              const isLeft = index % 2 === 0;
+              
+              return (
+                <div key={index} className="relative">
+                  {/* Timeline dot */}
+                  <div className="hidden md:block absolute left-1/2 top-8 w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded-full transform -translate-x-1/2 z-10 shadow-glow border-4 border-background"></div>
 
-              <div className="flex flex-wrap gap-2">
-                {exp.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1 rounded-full text-sm bg-primary/10 text-primary border border-primary/30"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+                  {/* Content */}
+                  <div className={`grid md:grid-cols-2 gap-8 items-start ${isLeft ? '' : 'md:grid-flow-dense'}`}>
+                    {/* Spacer for alternating layout */}
+                    <div className={`hidden md:block ${isLeft ? 'md:order-1' : 'md:order-2'}`}></div>
+                    
+                    {/* Card */}
+                    <div className={`glass-card rounded-2xl p-6 md:p-8 hover:border-secondary/70 transition-all duration-500 hover:shadow-glow group ${
+                      isLeft ? 'animate-slide-right md:order-2' : 'animate-slide-left md:order-1'
+                    }`} style={{ animationDelay: `${index * 0.2}s` }}>
+                      {/* Company Icon */}
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-secondary group-hover:scale-110 transition-transform duration-300">
+                          <Briefcase className="text-primary-foreground" size={24} />
+                        </div>
+                        <div className="flex-1">
+                          <h3 className="text-xl md:text-2xl font-bold mb-1 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                            {exp.company}
+                          </h3>
+                          <p className="text-lg font-semibold text-foreground">{exp.position}</p>
+                        </div>
+                      </div>
+
+                      <div className="mb-4 text-sm text-muted-foreground space-y-1">
+                        <p className="font-medium text-primary">{exp.duration}</p>
+                        <p className="flex items-center gap-1">
+                          <MapPin size={14} />
+                          {exp.location}
+                        </p>
+                        {exp.secondLocation && (
+                          <p className="flex items-center gap-1">
+                            <MapPin size={14} />
+                            {exp.secondLocation}
+                          </p>
+                        )}
+                      </div>
+
+                      <ul className="space-y-3 mb-6">
+                        {exp.achievements.map((achievement, i) => (
+                          <li key={i} className="flex gap-3 text-muted-foreground text-sm">
+                            <span className="text-secondary mt-1 font-bold">▹</span>
+                            <span>{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="flex flex-wrap gap-2">
+                        {exp.tech.map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-primary/10 to-secondary/10 text-primary border border-primary/40 hover:border-secondary/60 hover:scale-105 transition-all duration-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
