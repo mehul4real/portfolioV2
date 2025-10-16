@@ -1,4 +1,4 @@
-import { Briefcase, MapPin } from "lucide-react";
+import { Briefcase, MapPin, Calendar } from "lucide-react";
 
 const experiences = [
   {
@@ -8,12 +8,12 @@ const experiences = [
     location: "Gurugram, HR India",
     secondLocation: "August 2022 - June 2025 | Onsite - Abu Dhabi, UAE",
     achievements: [
-      "Leading end-to-end development of Indiagold's digital gold loan platform, including backend, frontend, gateway, and integrations",
-      "Tech Lead for 25+ feature releases; managed timelines, delivery ownership, and post-release monitoring",
-      "Reduced data fetch time from 1.5s to under 100ms and database size from 20GB+ to <1MB through Experian integration",
-      "Engineered configurable processing fee system generating 10 crore INR+ in profit",
-      "Developed Renew/Rebook automation enabling 600 crore INR+ AUM within 6 months of release",
-      "Built multiple internal dashboards and lender tools (React + Next.js) for operational efficiency"
+      "Leading end-to-end development of Indiagold's digital gold loan platform",
+      "Tech Lead for 25+ feature releases; managed timelines and delivery ownership",
+      "Reduced data fetch time from 1.5s to <100ms and database from 20GB+ to <1MB",
+      "Engineered fee system generating 10 crore INR+ in profit",
+      "Developed automation enabling 600 crore INR+ AUM within 6 months",
+      "Built multiple internal dashboards and tools for operational efficiency"
     ],
     tech: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Java", "Spring Boot", "SQL", "AWS"]
   },
@@ -23,10 +23,10 @@ const experiences = [
     duration: "November 2020 - August 2021",
     location: "Gurugram, HR",
     achievements: [
-      "Solely handled frontend architecture of EasyLokal; set up project from scratch with responsive design",
-      "Led end-to-end delivery as the only frontend developer under tight deadlines",
+      "Solely handled frontend architecture from scratch with responsive design",
+      "Led end-to-end delivery as the only frontend developer",
       "Maintained accelerated release cadence for investor demos",
-      "Managed and maintained other company projects including KrishiYog"
+      "Managed multiple company projects including KrishiYog"
     ],
     tech: ["Vue.js", "Vuetify"]
   }
@@ -34,77 +34,82 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 px-4 relative">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center">
+    <section id="experience" className="py-24 px-4 relative">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
           Professional <span className="gradient-text">Experience</span>
         </h2>
 
-        {/* Timeline container */}
+        {/* Timeline */}
         <div className="relative">
-          {/* Center line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent transform -translate-x-1/2"></div>
+          {/* Center line - hidden on mobile */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-secondary/50 to-accent/50 transform -translate-x-1/2"></div>
 
-          {/* Timeline items */}
-          <div className="space-y-16">
+          <div className="space-y-12">
             {experiences.map((exp, index) => {
               const isLeft = index % 2 === 0;
               
               return (
                 <div key={index} className="relative">
                   {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-1/2 top-8 w-6 h-6 bg-gradient-to-br from-primary to-secondary rounded-full transform -translate-x-1/2 z-10 shadow-glow border-4 border-background"></div>
+                  <div className="hidden md:block absolute left-1/2 top-10 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 z-10 border-4 border-background shadow-lg shadow-primary/50"></div>
 
-                  {/* Content */}
-                  <div className={`grid md:grid-cols-2 gap-8 items-start ${isLeft ? '' : 'md:grid-flow-dense'}`}>
-                    {/* Spacer for alternating layout */}
-                    <div className={`hidden md:block ${isLeft ? 'md:order-1' : 'md:order-2'}`}></div>
-                    
-                    {/* Card */}
-                    <div className={`glass-card rounded-2xl p-6 md:p-8 hover:border-secondary/70 transition-all duration-500 hover:shadow-glow group ${
-                      isLeft ? 'animate-slide-right md:order-2' : 'animate-slide-left md:order-1'
-                    }`} style={{ animationDelay: `${index * 0.2}s` }}>
-                      {/* Company Icon */}
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-secondary group-hover:scale-110 transition-transform duration-300">
-                          <Briefcase className="text-primary-foreground" size={24} />
+                  {/* Content wrapper */}
+                  <div className={`md:w-[calc(50%-2rem)] ${isLeft ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                    <div
+                      className={`bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 ${
+                        isLeft ? 'animate-slide-right' : 'animate-slide-left'
+                      }`}
+                      style={{ animationDelay: `${index * 0.2}s` }}
+                    >
+                      {/* Header */}
+                      <div className="mb-4">
+                        <div className="flex items-start gap-3 mb-2">
+                          <div className="p-2 rounded-lg bg-primary/10 border border-primary/30">
+                            <Briefcase className="text-primary" size={20} />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-xl font-bold text-primary mb-1">
+                              {exp.company}
+                            </h3>
+                            <p className="text-base font-semibold text-foreground">{exp.position}</p>
+                          </div>
                         </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl md:text-2xl font-bold mb-1 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-                            {exp.company}
-                          </h3>
-                          <p className="text-lg font-semibold text-foreground">{exp.position}</p>
+                        
+                        <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground ml-11">
+                          <div className="flex items-center gap-1">
+                            <Calendar size={14} className="text-primary" />
+                            <span>{exp.duration}</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <MapPin size={14} className="text-secondary" />
+                            <span>{exp.location}</span>
+                          </div>
                         </div>
-                      </div>
-
-                      <div className="mb-4 text-sm text-muted-foreground space-y-1">
-                        <p className="font-medium text-primary">{exp.duration}</p>
-                        <p className="flex items-center gap-1">
-                          <MapPin size={14} />
-                          {exp.location}
-                        </p>
                         {exp.secondLocation && (
-                          <p className="flex items-center gap-1">
-                            <MapPin size={14} />
-                            {exp.secondLocation}
-                          </p>
+                          <div className="flex items-center gap-1 text-sm text-muted-foreground ml-11 mt-1">
+                            <MapPin size={14} className="text-secondary" />
+                            <span>{exp.secondLocation}</span>
+                          </div>
                         )}
                       </div>
 
-                      <ul className="space-y-3 mb-6">
+                      {/* Achievements */}
+                      <ul className="space-y-2 mb-4 ml-11">
                         {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="flex gap-3 text-muted-foreground text-sm">
-                            <span className="text-secondary mt-1 font-bold">▹</span>
-                            <span>{achievement}</span>
+                          <li key={i} className="flex gap-2 text-sm text-muted-foreground">
+                            <span className="text-secondary mt-1 flex-shrink-0">•</span>
+                            <span className="leading-relaxed">{achievement}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <div className="flex flex-wrap gap-2">
+                      {/* Tech Stack */}
+                      <div className="flex flex-wrap gap-2 ml-11">
                         {exp.tech.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1.5 rounded-full text-xs font-medium bg-gradient-to-r from-primary/10 to-secondary/10 text-primary border border-primary/40 hover:border-secondary/60 hover:scale-105 transition-all duration-300"
+                            className="px-3 py-1 rounded-md text-xs font-medium bg-primary/5 text-primary border border-primary/20 hover:bg-primary/10 transition-colors"
                           >
                             {tech}
                           </span>
