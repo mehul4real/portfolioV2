@@ -1,21 +1,182 @@
 import { Mail, Phone } from "lucide-react";
 import { Button } from "./ui/button";
+import { useMousePosition } from "@/hooks/use-mouse-position";
+import { useEffect, useRef } from "react";
 
 const Hero = () => {
+  const mousePosition = useMousePosition();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles: Array<{
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      opacity: number;
+    }> = [];
+
+    // Create particles
+    for (let i = 0; i < 50; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 1,
+        speedX: Math.random() * 0.5 - 0.25,
+        speedY: Math.random() * 0.5 - 0.25,
+        opacity: Math.random() * 0.5 + 0.2,
+      });
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle, i) => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+
+        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(147, 197, 253, ${particle.opacity})`;
+        ctx.fill();
+
+        // Draw connections
+        particles.forEach((particle2, j) => {
+          if (i === j) return;
+          const dx = particle.x - particle2.x;
+          const dy = particle.y - particle2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(147, 197, 253, ${0.1 * (1 - distance / 150)})`;
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(particle2.x, particle2.y);
+            ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    const handleResize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const calculateParallax = (depth: number) => {
+    const x = (mousePosition.x - window.innerWidth / 2) * depth;
+    const y = (mousePosition.y - window.innerHeight / 2) * depth;
+    return { x, y };
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
-      {/* Interactive animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Large floating orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 hero-orb-1 rounded-full blur-3xl animate-float bg-shape"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 hero-orb-2 rounded-full blur-3xl animate-float bg-shape" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 hero-orb-3 rounded-full blur-3xl animate-float bg-shape" style={{ animationDelay: '4s' }}></div>
+      {/* Animated particle canvas */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 pointer-events-none"
+        style={{ opacity: 0.4 }}
+      />
+
+      {/* Grid background */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
+                         linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+        backgroundSize: '50px 50px'
+      }} />
+
+      {/* Interactive animated background elements with parallax */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Large floating orbs with parallax */}
+        <div 
+          className="absolute top-1/4 left-1/4 w-96 h-96 hero-orb-1 rounded-full blur-3xl animate-float transition-transform duration-300 ease-out"
+          style={{ 
+            animationDelay: '0s',
+            transform: `translate(${calculateParallax(0.02).x}px, ${calculateParallax(0.02).y}px)`
+          }}
+        />
+        <div 
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 hero-orb-2 rounded-full blur-3xl animate-float transition-transform duration-300 ease-out"
+          style={{ 
+            animationDelay: '2s',
+            transform: `translate(${calculateParallax(0.03).x}px, ${calculateParallax(0.03).y}px)`
+          }}
+        />
+        <div 
+          className="absolute top-1/2 right-1/3 w-64 h-64 hero-orb-3 rounded-full blur-3xl animate-float transition-transform duration-300 ease-out"
+          style={{ 
+            animationDelay: '4s',
+            transform: `translate(${calculateParallax(0.025).x}px, ${calculateParallax(0.025).y}px)`
+          }}
+        />
         
-        {/* Geometric shapes */}
-        <div className="absolute top-20 right-20 w-32 h-32 border-2 border-primary-soft rotate-45 animate-float bg-shape" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-20 left-20 w-24 h-24 border-2 border-secondary-soft rounded-full animate-float bg-shape" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/3 left-1/2 w-16 h-16 hero-shape rotate-12 animate-float bg-shape" style={{ animationDelay: '2.5s' }}></div>
-        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border-2 border-accent-soft rounded-lg rotate-45 animate-float bg-shape" style={{ animationDelay: '3.5s' }}></div>
+        {/* Geometric shapes with parallax and interactive hover */}
+        <div 
+          className="absolute top-20 right-20 w-32 h-32 border-2 border-primary-soft rotate-45 animate-float bg-shape pointer-events-auto cursor-pointer transition-all duration-300 hover:scale-125 hover:rotate-[60deg] hover:border-primary"
+          style={{ 
+            animationDelay: '1s',
+            transform: `translate(${calculateParallax(0.04).x}px, ${calculateParallax(0.04).y}px) rotate(45deg)`
+          }}
+        />
+        <div 
+          className="absolute bottom-20 left-20 w-24 h-24 border-2 border-secondary-soft rounded-full animate-float bg-shape pointer-events-auto cursor-pointer transition-all duration-300 hover:scale-125 hover:border-secondary"
+          style={{ 
+            animationDelay: '3s',
+            transform: `translate(${calculateParallax(0.035).x}px, ${calculateParallax(0.035).y}px)`
+          }}
+        />
+        <div 
+          className="absolute top-1/3 left-1/2 w-16 h-16 hero-shape rotate-12 animate-float bg-shape pointer-events-auto cursor-pointer transition-all duration-300 hover:scale-150 hover:rotate-[100deg]"
+          style={{ 
+            animationDelay: '2.5s',
+            transform: `translate(${calculateParallax(0.045).x}px, ${calculateParallax(0.045).y}px) rotate(12deg)`
+          }}
+        />
+        <div 
+          className="absolute bottom-1/3 right-1/4 w-20 h-20 border-2 border-accent-soft rounded-lg rotate-45 animate-float bg-shape pointer-events-auto cursor-pointer transition-all duration-300 hover:scale-125 hover:rotate-[90deg] hover:rounded-full hover:border-accent"
+          style={{ 
+            animationDelay: '3.5s',
+            transform: `translate(${calculateParallax(0.038).x}px, ${calculateParallax(0.038).y}px) rotate(45deg)`
+          }}
+        />
+        
+        {/* Additional interactive elements */}
+        <div 
+          className="absolute top-40 left-1/3 w-12 h-12 border-2 border-primary-soft rounded-full animate-float bg-shape pointer-events-auto cursor-pointer transition-all duration-300 hover:scale-150 hover:shadow-glow"
+          style={{ 
+            animationDelay: '1.5s',
+            transform: `translate(${calculateParallax(0.05).x}px, ${calculateParallax(0.05).y}px)`
+          }}
+        />
+        <div 
+          className="absolute bottom-40 right-1/3 w-14 h-14 border-2 border-secondary-soft rotate-45 animate-float bg-shape pointer-events-auto cursor-pointer transition-all duration-300 hover:scale-150 hover:rotate-[135deg]"
+          style={{ 
+            animationDelay: '2.8s',
+            transform: `translate(${calculateParallax(0.042).x}px, ${calculateParallax(0.042).y}px) rotate(45deg)`
+          }}
+        />
       </div>
 
       <div className="max-w-5xl mx-auto text-center relative z-10 animate-slide-up">
