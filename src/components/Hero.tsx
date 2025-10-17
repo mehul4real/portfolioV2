@@ -191,8 +191,8 @@ const Hero = () => {
         </div>
 
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-          Tech Lead with 5 years of experience building scalable full-stack solutions ⚡
-          Specialized in React, Node.js, and delivering high-impact features that drive business growth 🚀
+          A passionate Full-Stack Developer 🚀  with 5 years of experience building scalable solutions, pushing boundaries, 
+          optimizing performance, and enhancing user experiences. Let's build something extraordinary together! ⚡
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center mb-8">

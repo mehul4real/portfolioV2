@@ -3,27 +3,27 @@ import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 const SocialLinks = () => {
   const socialLinks = [
     {
-      name: "GitHub",
-      icon: Github,
-      url: "https://github.com/mehulsaxena",
-      hoverColor: "hover:text-primary",
-    },
-    {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://linkedin.com/in/mehulsaxena",
+      url: "https://linkedin.com/in/mehul4real",
       hoverColor: "hover:text-secondary",
-    },
-    {
-      name: "Twitter",
-      icon: Twitter,
-      url: "https://twitter.com/mehulsaxena",
-      hoverColor: "hover:text-accent",
     },
     {
       name: "Email",
       icon: Mail,
       url: "mailto:mehulsaxena.dev@gmail.com",
+      hoverColor: "hover:text-primary",
+    },
+    {
+      name: "Twitter",
+      icon: Twitter,
+      url: "https://twitter.com/whoisMehul",
+      hoverColor: "hover:text-accent",
+    },
+    {
+      name: "GitHub",
+      icon: Github,
+      url: "https://github.com/mehul4real",
       hoverColor: "hover:text-primary",
     },
   ];

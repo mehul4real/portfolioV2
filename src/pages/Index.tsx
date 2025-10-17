@@ -11,7 +11,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 // Splash screen configuration
 const splashConfig = {
   enabled: true,
-  duration: 3000 // 3 seconds
+  duration: 2000 // 3 seconds
 };
 
 const Index = () => {

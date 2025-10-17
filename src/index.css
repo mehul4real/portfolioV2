@@ -412,10 +412,12 @@ This file now imports from our centralized theme configuration.
     background: hsl(var(--background));
     z-index: 9999;
     overflow: hidden;
+    padding-bottom: 15vh; /* Move content higher */
   }
 
   .splash-animation-container {
-    height: 50vh;
+    height: 40vh; /* Reduced from 50vh */
+    margin-bottom: 1rem; /* Reduced gap between animation and title */
   }
 
   .splash-title-container {
