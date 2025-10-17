@@ -173,7 +173,7 @@ This file now imports from our centralized theme configuration.
   }
 
   .grey-color {
-    color: hsl(var(--muted-foreground));
+    color: #868e96
   }
   
   h1, h2, h3, h4, h5, h6 {

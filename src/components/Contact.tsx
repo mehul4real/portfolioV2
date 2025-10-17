@@ -4,7 +4,7 @@ import SocialLinks from "./SocialLinks";
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-24 px-4 bg-gradient-to-b from-transparent to-card/30">
+    <section id="contact" className="pt-24 pb-8 px-4 bg-gradient-to-b from-transparent to-card/30">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-medium mb-6">
           Let's <span className="gradient-text">Connect</span>

@@ -182,8 +182,9 @@ const Hero = () => {
 
       <div className="max-w-5xl mx-auto text-center relative z-10 animate-slide-up">
         <div className="mb-6">
-          <h1 className="text-5xl md:text-7xl font-medium mb-4">
-            Hi there, I'm <span className="gradient-text">Mehul Saxena</span>
+          <h1 className="text-5xl md:text-7xl mb-4">
+            <span className="opacity-70 font-normal">Hi there, I'm </span>
+            <span className="gradient-text font-medium">Mehul Saxena</span>
           </h1>
           <h2 className="text-2xl md:text-4xl font-normal text-muted-foreground mb-6">
             Senior Software Engineer
@@ -200,7 +201,7 @@ const Hero = () => {
             <a href="#contact">GET IN TOUCH</a>
           </Button>
           <Button asChild variant="secondary" size="lg" className="transition-all duration-300 hover:scale-105">
-            <a href="/resume.pdf" download>SEE MY RESUME</a>
+            <a target="_blank" href="https://drive.google.com/file/d/1PCxqRj-WQIkkaBqhzwMe7YKn4YeiajQQ/view?usp=sharing" download>SEE MY RESUME</a>
           </Button>
         </div>
 
