@@ -29,7 +29,7 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-6 animate-slide-up hover:border-secondary/70 transition-all duration-500 shadow-glow group"
+              className="glass-card rounded-2xl p-6 animate-slide-up hover:border-secondary/70 transition-all duration-500 hover:shadow-glow group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <h3 className="text-xl font-bold mb-4 gradient-text">

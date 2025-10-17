@@ -81,6 +81,18 @@ This file now imports from our centralized theme configuration.
   body {
     @apply bg-background text-foreground;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  .gradient-text {
+    font-style: italic;
+    font-weight: 700;
   }
 
   html {
@@ -94,7 +106,22 @@ This file now imports from our centralized theme configuration.
     background: var(--glass-bg);
     backdrop-filter: blur(var(--glass-blur));
     border: 1px solid var(--glass-border);
-    box-shadow: var(--shadow-card);
+  }
+  
+  .fade-bottom-card {
+    position: relative;
+  }
+  
+  .fade-bottom-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, hsl(var(--card) / 0.8));
+    pointer-events: none;
+    border-radius: inherit;
   }
 
   /* Gradient text utility */

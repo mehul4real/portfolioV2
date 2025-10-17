@@ -55,7 +55,7 @@ const Experience = () => {
 
                   {/* Content */}
                   <div className={`md:w-[calc(50%-3rem)] ${isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                    <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                    <div className="fade-bottom-card bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
                       {/* Company & Position */}
                       <div className="mb-4">
                         <h3 className="text-xl font-bold text-primary mb-1">

@@ -40,7 +40,7 @@ const Education = () => {
 
                   {/* Content */}
                   <div className={`md:w-[calc(50%-3rem)] ${isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                    <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                    <div className="fade-bottom-card bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
                       <div className="flex items-start gap-4">
                         <div className="p-2.5 rounded-lg bg-primary/10 border border-primary/20">
                           <GraduationCap className="text-primary" size={22} />
