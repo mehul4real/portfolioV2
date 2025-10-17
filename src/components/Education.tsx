@@ -20,46 +20,39 @@ const education = [
 const Education = () => {
   return (
     <section id="education" className="py-24 px-4 relative">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-          <span className="gradient-text">Education</span>
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center">
+          <span className="text-primary">Education</span>
         </h2>
 
-        {/* Timeline container */}
         <div className="relative">
-          {/* Center line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-secondary/50 to-accent/50 transform -translate-x-1/2"></div>
+          {/* Timeline line */}
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-primary/30 to-transparent md:transform md:-translate-x-1/2"></div>
 
-          {/* Timeline items */}
-          <div className="space-y-12">
+          <div className="space-y-16 md:space-y-20">
             {education.map((edu, index) => {
               const isLeft = index % 2 === 0;
               
               return (
-                <div key={index} className="relative">
+                <div key={index} className="relative pl-8 md:pl-0">
                   {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-1/2 top-10 w-4 h-4 bg-accent rounded-full transform -translate-x-1/2 z-10 border-4 border-background shadow-lg shadow-accent/50"></div>
+                  <div className="absolute left-0 md:left-1/2 top-6 w-3 h-3 bg-primary rounded-full md:transform md:-translate-x-1/2 ring-4 ring-background"></div>
 
-                  {/* Content wrapper */}
-                  <div className={`md:w-[calc(50%-2rem)] ${isLeft ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
-                    <div
-                      className={`bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:border-accent/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent/10 ${
-                        isLeft ? 'animate-slide-right' : 'animate-slide-left'
-                      }`}
-                      style={{ animationDelay: `${index * 0.2}s` }}
-                    >
+                  {/* Content */}
+                  <div className={`md:w-[calc(50%-3rem)] ${isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
+                    <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
                       <div className="flex items-start gap-4">
-                        <div className="p-2 rounded-lg bg-accent/10 border border-accent/30">
-                          <GraduationCap className="text-accent" size={24} />
+                        <div className="p-2.5 rounded-lg bg-primary/10 border border-primary/20">
+                          <GraduationCap className="text-primary" size={22} />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-lg font-bold text-accent mb-1">
+                          <h3 className="text-lg font-bold text-primary mb-1">
                             {edu.institution}
                           </h3>
-                          <p className="text-foreground font-medium mb-2 text-sm">{edu.degree}</p>
-                          <div className="flex flex-col gap-1 text-sm text-muted-foreground">
+                          <p className="text-foreground font-medium mb-3 text-sm">{edu.degree}</p>
+                          <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
                             <p>{edu.duration} • {edu.location}</p>
-                            <p className="text-accent font-semibold">{edu.grade}</p>
+                            <p className="text-primary/90 font-semibold">{edu.grade}</p>
                           </div>
                         </div>
                       </div>

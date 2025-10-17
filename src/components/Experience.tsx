@@ -35,81 +35,68 @@ const experiences = [
 const Experience = () => {
   return (
     <section id="experience" className="py-24 px-4 relative">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center">
-          Professional <span className="gradient-text">Experience</span>
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center">
+          Professional <span className="text-primary">Experience</span>
         </h2>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Center line - hidden on mobile */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-timeline transform -translate-x-1/2"></div>
+          {/* Timeline line */}
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/50 via-primary/30 to-transparent md:transform md:-translate-x-1/2"></div>
 
-          <div className="space-y-12">
+          <div className="space-y-16 md:space-y-20">
             {experiences.map((exp, index) => {
               const isLeft = index % 2 === 0;
               
               return (
-                <div key={index} className="relative">
+                <div key={index} className="relative pl-8 md:pl-0">
                   {/* Timeline dot */}
-                  <div className="hidden md:block absolute left-1/2 top-10 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 z-10 border-4 border-background shadow-lg shadow-primary/50"></div>
+                  <div className="absolute left-0 md:left-1/2 top-8 w-3 h-3 bg-primary rounded-full md:transform md:-translate-x-1/2 ring-4 ring-background"></div>
 
-                  {/* Content wrapper */}
-                  <div className={`md:w-[calc(50%-2rem)] ${isLeft ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
-                    <div
-                      className={`bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 ${
-                        isLeft ? 'animate-slide-right' : 'animate-slide-left'
-                      }`}
-                      style={{ animationDelay: `${index * 0.2}s` }}
-                    >
-                      {/* Header */}
+                  {/* Content */}
+                  <div className={`md:w-[calc(50%-3rem)] ${isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
+                    <div className="bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                      {/* Company & Position */}
                       <div className="mb-4">
-                        <div className="flex items-start gap-3 mb-2">
-                          <div className="p-2 rounded-lg bg-primary/10 border border-primary/30">
-                            <Briefcase className="text-primary" size={20} />
-                          </div>
-                          <div className="flex-1">
-                            <h3 className="text-xl font-bold text-primary mb-1">
-                              {exp.company}
-                            </h3>
-                            <p className="text-base font-semibold text-foreground">{exp.position}</p>
-                          </div>
-                        </div>
+                        <h3 className="text-xl font-bold text-primary mb-1">
+                          {exp.company}
+                        </h3>
+                        <p className="text-lg font-semibold text-foreground mb-3">{exp.position}</p>
                         
-                        <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground ml-11">
-                          <div className="flex items-center gap-1">
-                            <Calendar size={14} className="text-primary" />
+                        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                          <div className="flex items-center gap-1.5">
+                            <Calendar size={16} className="text-primary/70" />
                             <span>{exp.duration}</span>
                           </div>
-                          <div className="flex items-center gap-1">
-                            <MapPin size={14} className="text-secondary" />
+                          <div className="flex items-center gap-1.5">
+                            <MapPin size={16} className="text-primary/70" />
                             <span>{exp.location}</span>
                           </div>
                         </div>
                         {exp.secondLocation && (
-                          <div className="flex items-center gap-1 text-sm text-muted-foreground ml-11 mt-1">
-                            <MapPin size={14} className="text-secondary" />
+                          <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-1">
+                            <MapPin size={16} className="text-primary/70" />
                             <span>{exp.secondLocation}</span>
                           </div>
                         )}
                       </div>
 
                       {/* Achievements */}
-                      <ul className="space-y-2 mb-4 ml-11">
+                      <ul className="space-y-2.5 mb-5">
                         {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="flex gap-2 text-sm text-muted-foreground">
-                            <span className="text-secondary mt-1 flex-shrink-0">•</span>
-                            <span className="leading-relaxed">{achievement}</span>
+                          <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                            <span className="text-primary mt-1.5 flex-shrink-0">▸</span>
+                            <span>{achievement}</span>
                           </li>
                         ))}
                       </ul>
 
                       {/* Tech Stack */}
-                      <div className="flex flex-wrap gap-2 ml-11">
+                      <div className="flex flex-wrap gap-2">
                         {exp.tech.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 rounded-md text-xs font-medium bg-primary/5 text-primary border border-primary/20 hover:bg-primary/10 transition-colors"
+                            className="px-3 py-1 rounded-md text-xs font-medium bg-primary/5 text-primary/90 border border-primary/10 hover:bg-primary/10 transition-colors"
                           >
                             {tech}
                           </span>
