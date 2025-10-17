@@ -48,11 +48,11 @@ const Education = () => {
                           <GraduationCap className="text-primary" size={22} />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-lg font-medium text-primary mb-1">
+                          <h3 className="text-xl font-medium text-primary mb-1">
                             {edu.institution} 
                           </h3>
-                          <p className="text-foreground font-normal mb-3 text-sm">{edu.degree} </p>
-                          <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
+                          <p className="text-foreground font-normal mb-3 text-base">{edu.degree} </p>
+                          <div className="flex flex-col gap-1.5 text-base text-muted-foreground">
                             <p>{edu.duration} • {edu.location} </p>
                             <p className="text-primary/90 font-normal">{edu.grade} </p>
                           </div>

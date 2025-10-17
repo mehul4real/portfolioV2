@@ -25,7 +25,7 @@ const Header = () => {
         scrolled ? "glass-card border-b" : "bg-transparent"
       }`}
     >
-      <div className="mx-auto px-8 py-4 flex items-center justify-between">
+      <div className="mx-auto px-8 py-1 flex items-center justify-between">
         {/* Signature Name */}
         <a href="/" className="logo">
           <span className="grey-color">&lt;</span>
@@ -39,7 +39,7 @@ const Header = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-normal text-muted-foreground hover:text-primary transition-colors relative group"
+              className="text-base font-normal text-muted-foreground hover:text-primary transition-colors relative group"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>

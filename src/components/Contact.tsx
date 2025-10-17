@@ -11,8 +11,7 @@ const Contact = () => {
         </h2>
         
         <p className="text-lg text-muted-foreground mb-12">
-          I'm always open to discussing new projects, opportunities, or collaborations 💡
-          Feel free to reach out! 🌟
+          Discuss a project or just want to say hi? My Inbox is open for all. 🌟
         </p>
 
         <div className="glass-card rounded-2xl p-8 mb-12 animate-slide-up hover:scale-[1.02] transition-all duration-500">
@@ -41,7 +40,7 @@ const Contact = () => {
               <div className="hidden md:block text-muted-foreground/50">|</div>
               <div className="flex items-center gap-2 justify-center">
                 <Phone size={18} className="text-primary" />
-                <span>7000301634</span>
+                <span>+91 7000301634</span>
               </div>
             </div>
           </div>
@@ -49,14 +48,11 @@ const Contact = () => {
 
         {/* Social Links Section */}
         <div className="mb-12">
-          <h3 className="text-xl font-medium mb-6 text-center">
-            Find me on <span className="gradient-text">Social Media</span> 🌐
-          </h3>
           <SocialLinks />
         </div>
 
         <footer className="text-muted-foreground text-sm">
-          <p>© 2024 Mehul Saxena. Built with passion and code 💙</p>
+          <p>Built with passion and code by 🔥 <a href="https://www.linkedin.com/in/mehul4real/" target="_blank" rel="noopener noreferrer">Mehul Saxena</a></p>
         </footer>
       </div>
     </section>

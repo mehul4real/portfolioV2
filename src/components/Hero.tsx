@@ -211,7 +211,7 @@ const Hero = () => {
           </a>
           <a href="tel:7000301634" className="flex items-center gap-2 hover:text-secondary transition-colors">
             <Phone size={20} />
-            <span>7000301634</span>
+            <span>+91 7000301634</span>
           </a>
         </div>
         

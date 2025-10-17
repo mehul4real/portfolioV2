@@ -60,23 +60,23 @@ const Experience = () => {
                       <div className="glass-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
                       {/* Company & Position */}
                       <div className="mb-4">
-                        <h3 className="text-xl font-medium text-primary mb-1">
+                        <h3 className="text-2xl font-medium text-primary mb-1">
                           {exp.company}
                         </h3>
-                        <p className="text-lg font-normal text-foreground mb-3">{exp.position}</p>
+                        <p className="text-xl font-normal text-foreground mb-3">{exp.position}</p>
                         
-                        <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
+                        <div className="flex flex-wrap gap-x-4 gap-y-2 text-base text-muted-foreground">
                           <div className="flex items-center gap-1.5">
-                            <Calendar size={16} className="text-primary/70" />
+                            <Calendar size={18} className="text-primary/70" />
                             <span>{exp.duration}</span>
                           </div>
                           <div className="flex items-center gap-1.5">
-                            <MapPin size={16} className="text-primary/70" />
+                            <MapPin size={18} className="text-primary/70" />
                             <span>{exp.location}</span>
                           </div>
                         </div>
                         {exp.secondLocation && (
-                          <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-1">
+                          <div className="flex items-center gap-1.5 text-base text-muted-foreground mt-1">
                             <Plane size={16} className="text-primary/70" />
                             <span>{exp.secondLocation}</span>
                           </div>
@@ -86,7 +86,7 @@ const Experience = () => {
                       {/* Achievements */}
                       <ul className="space-y-2.5 mb-5">
                         {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="flex gap-3 text-sm text-muted-foreground leading-relaxed">
+                          <li key={i} className="flex gap-3 text-base text-muted-foreground leading-relaxed">
                             <span className="text-primary mt-1.5 flex-shrink-0">▸</span>
                             <span>{achievement}</span>
                           </li>
@@ -98,7 +98,7 @@ const Experience = () => {
                         {exp.tech.map((tech, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 rounded-md text-xs font-medium bg-primary/5 text-primary/90 border border-primary/10 hover:bg-primary/10 transition-colors"
+                            className="px-3 py-1 rounded-md text-sm font-medium bg-primary/5 text-primary/90 border border-primary/10 hover:bg-primary/10 transition-colors"
                           >
                             {tech}
                           </span>
