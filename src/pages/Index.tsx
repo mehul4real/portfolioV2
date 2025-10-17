@@ -6,6 +6,7 @@ import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import SplashScreen from "@/components/SplashScreen";
+import ScrollToTop from "@/components/ScrollToTop";
 
 // Splash screen configuration
 const splashConfig = {
@@ -42,6 +43,7 @@ const Index = () => {
       <Skills />
       <Education />
       <Contact />
+      <ScrollToTop />
     </div>
   );
 };

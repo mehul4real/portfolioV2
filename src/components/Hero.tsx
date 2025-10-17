@@ -102,10 +102,10 @@ const Hero = () => {
       />
 
       {/* Grid background */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-        backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px),
-                         linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
-        backgroundSize: '50px 50px'
+      <div className="absolute inset-0 opacity-10 dark:opacity-[0.06]" style={{
+        backgroundImage: `linear-gradient(hsl(var(--primary) / 0.6) 1px, transparent 1px),
+                         linear-gradient(90deg, hsl(var(--primary) / 0.6) 1px, transparent 1px)`,
+        backgroundSize: '60px 60px'
       }} />
 
       {/* Interactive animated background elements with parallax */}
@@ -217,6 +217,9 @@ const Hero = () => {
         
         <SocialLinks />
       </div>
+      
+      {/* Fade transition overlay */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-background pointer-events-none" />
     </section>
   );
 };

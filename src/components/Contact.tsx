@@ -7,11 +7,11 @@ const Contact = () => {
     <section id="contact" className="py-24 px-4 bg-gradient-to-b from-transparent to-card/30">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-medium mb-6">
-          Let's <span className="gradient-text">Connect</span> 🤝
+          Let's <span className="gradient-text">Connect</span>
         </h2>
         
         <p className="text-lg text-muted-foreground mb-12">
-          Discuss a project or just want to say hi? My Inbox is open for all. 🌟
+          Discuss a project or just want to say hi? My Inbox is open for all.
         </p>
 
         <div className="glass-card rounded-2xl p-8 mb-12 animate-slide-up hover:scale-[1.02] transition-all duration-500">

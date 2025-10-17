@@ -89,6 +89,52 @@ This file now imports from our centralized theme configuration.
     --border-secondary: hsl(220 70% 50% / 0.2);
     --border-accent: hsl(220 90% 60% / 0.2);
   }
+
+  .light {
+    /* Base colors - Light mode */
+    --background: 0 0% 98%;
+    --foreground: 240 20% 5%;
+
+    /* Surface colors */
+    --card: 0 0% 100%;
+    --card-foreground: 240 20% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 20% 5%;
+
+    /* Brand colors remain consistent */
+    --primary: 220 90% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 220 90% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Muted colors */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 15% 25%;
+
+    /* UI state colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 5% 90%;
+    --input: 240 5% 90%;
+    --ring: 220 90% 50%;
+
+    /* Glass morphism tokens - Light mode */
+    --glass-bg: hsla(0 0% 100% / 0.8);
+    --glass-border: hsla(220 90% 50% / 0.2);
+    
+    /* Shadow and glow tokens - Light mode */
+    --shadow-glow: 0 0 20px hsla(220 90% 50% / 0.15);
+    --shadow-card: 0 8px 32px hsla(0 0% 0% / 0.1);
+    --shadow-hover: 0 12px 24px hsla(220 90% 50% / 0.2);
+    
+    /* Hero background shapes - Light mode */
+    --hero-orb-1: linear-gradient(to bottom right, hsl(220 90% 50% / 0.1), hsl(220 70% 45% / 0.08));
+    --hero-orb-2: linear-gradient(to bottom right, hsl(220 70% 45% / 0.1), hsl(220 90% 50% / 0.08));
+    --hero-orb-3: linear-gradient(to bottom right, hsl(220 90% 50% / 0.08), hsl(220 70% 45% / 0.08));
+    --hero-shape: linear-gradient(to bottom right, hsl(220 90% 50% / 0.15), hsl(220 70% 45% / 0.15));
+  }
 }
 
 @layer base {
@@ -353,96 +399,23 @@ This file now imports from our centralized theme configuration.
 
   /* Splash Screen Styles */
   .splash-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background: hsl(var(--background));
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     z-index: 9999;
     overflow: hidden;
   }
 
   .splash-animation-container {
-    position: relative;
-    margin-bottom: 4rem;
-    perspective: 1000px;
-  }
-
-  .cubes-container {
-    position: relative;
-    width: 120px;
-    height: 120px;
-    transform-style: preserve-3d;
-    animation: containerRotate 8s ease-in-out infinite;
-  }
-
-  .cube {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    transform-style: preserve-3d;
-    animation: cubeFloat 3s ease-in-out infinite;
-  }
-
-  .cube-1 {
-    top: 0;
-    left: 40px;
-    animation-delay: 0s;
-  }
-
-  .cube-2 {
-    top: 40px;
-    left: 0;
-    animation-delay: 0.5s;
-  }
-
-  .cube-3 {
-    top: 40px;
-    left: 80px;
-    animation-delay: 1s;
-  }
-
-  .face {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    border: 2px solid hsl(var(--foreground));
-    background: hsl(var(--background));
-  }
-
-  .front {
-    transform: rotateY(0deg) translateZ(20px);
-    background: linear-gradient(135deg, hsl(var(--foreground) / 0.1), hsl(var(--foreground) / 0.05));
-  }
-
-  .back {
-    transform: rotateY(180deg) translateZ(20px);
-    background: linear-gradient(135deg, hsl(var(--foreground) / 0.05), hsl(var(--foreground) / 0.02));
-  }
-
-  .right {
-    transform: rotateY(90deg) translateZ(20px);
-    background: linear-gradient(135deg, hsl(var(--foreground) / 0.08), hsl(var(--foreground) / 0.04));
-  }
-
-  .left {
-    transform: rotateY(-90deg) translateZ(20px);
-    background: linear-gradient(135deg, hsl(var(--foreground) / 0.06), hsl(var(--foreground) / 0.03));
-  }
-
-  .top {
-    transform: rotateX(90deg) translateZ(20px);
-    background: linear-gradient(135deg, hsl(var(--foreground) / 0.12), hsl(var(--foreground) / 0.08));
-  }
-
-  .bottom {
-    transform: rotateX(-90deg) translateZ(20px);
-    background: linear-gradient(135deg, hsl(var(--foreground) / 0.04), hsl(var(--foreground) / 0.02));
+    height: 50vh;
   }
 
   .splash-title-container {
@@ -464,33 +437,6 @@ This file now imports from our centralized theme configuration.
     color: hsl(var(--muted-foreground));
     font-size: 2.5rem;
     font-weight: 300;
-  }
-
-  @keyframes containerRotate {
-    0%, 100% {
-      transform: rotateX(15deg) rotateY(0deg);
-    }
-    25% {
-      transform: rotateX(15deg) rotateY(90deg);
-    }
-    50% {
-      transform: rotateX(15deg) rotateY(180deg);
-    }
-    75% {
-      transform: rotateX(15deg) rotateY(270deg);
-    }
-  }
-
-  @keyframes cubeFloat {
-    0%, 100% {
-      transform: translateY(0) rotateX(0deg) rotateY(0deg);
-    }
-    33% {
-      transform: translateY(-10px) rotateX(180deg) rotateY(120deg);
-    }
-    66% {
-      transform: translateY(5px) rotateX(-90deg) rotateY(240deg);
-    }
   }
 
   @keyframes fadeInUp {

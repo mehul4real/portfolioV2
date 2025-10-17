@@ -35,10 +35,13 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 px-4 relative">
-      <div className="max-w-6xl mx-auto">
+    <section id="experience" className="py-24 px-4 relative bg-gradient-to-b from-background via-background to-background/95">
+      {/* Top fade transition */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent pointer-events-none" />
+      
+      <div className="max-w-6xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-5xl font-medium mb-20 text-center">
-          Professional <span className="gradient-text">Experience</span> 💼
+          Professional <span className="gradient-text">Experience</span>
         </h2>
 
         <div className="relative">
