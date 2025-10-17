@@ -21,16 +21,16 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`header fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "glass-card border-b" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="mx-auto px-8 py-4 flex items-center justify-between">
         {/* Signature Name */}
-        <a href="#" className="text-2xl md:text-3xl font-bold tracking-tight">
-          <span className="gradient-text" style={{ fontFamily: "'Brush Script MT', cursive" }}>
-            Mehul Saxena
-          </span>
+        <a href="/" className="logo">
+          <span className="grey-color">&lt;</span>
+          <span className="logo-name">Mehul Saxena</span>
+          <span className="grey-color">/&gt;</span>
         </a>
 
         {/* Navigation Links */}
@@ -39,7 +39,7 @@ const Header = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
+              className="text-sm font-normal text-muted-foreground hover:text-primary transition-colors relative group"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>

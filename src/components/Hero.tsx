@@ -182,28 +182,25 @@ const Hero = () => {
 
       <div className="max-w-5xl mx-auto text-center relative z-10 animate-slide-up">
         <div className="mb-6">
-          <h1 className="text-5xl md:text-7xl font-bold mb-4">
-            Hi, I'm <span className="gradient-text">Mehul Saxena</span>
+          <h1 className="text-5xl md:text-7xl font-medium mb-4">
+            Hi there, I'm <span className="gradient-text">Mehul Saxena</span>
           </h1>
-          <h2 className="text-2xl md:text-4xl font-semibold text-muted-foreground mb-6">
+          <h2 className="text-2xl md:text-4xl font-normal text-muted-foreground mb-6">
             Senior Software Engineer
           </h2>
         </div>
 
         <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-          Tech Lead with 4+ years of experience building scalable full-stack solutions.
-          Specialized in React, Node.js, and delivering high-impact features that drive business growth.
+          Tech Lead with 5 years of experience building scalable full-stack solutions ⚡
+          Specialized in React, Node.js, and delivering high-impact features that drive business growth 🚀
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center mb-8">
           <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-glow transition-all duration-300 hover:scale-105">
-            <a href="#contact">Get In Touch</a>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="border-primary-soft hover:bg-primary/10 hover:border-secondary-soft transition-all duration-300 hover:scale-105">
-            <a href="#experience">View Experience</a>
+            <a href="#contact">GET IN TOUCH</a>
           </Button>
           <Button asChild variant="secondary" size="lg" className="transition-all duration-300 hover:scale-105">
-            <a href="/resume.pdf" download>Download Resume</a>
+            <a href="/resume.pdf" download>SEE MY RESUME</a>
           </Button>
         </div>
 

@@ -1,4 +1,5 @@
 import { GraduationCap } from "lucide-react";
+import Fade from 'react-reveal/Fade';
 
 const education = [
   {
@@ -21,8 +22,8 @@ const Education = () => {
   return (
     <section id="education" className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center">
-          <span className="text-primary">Education</span>
+        <h2 className="text-4xl md:text-5xl font-medium mb-20 text-center">
+          <span className="gradient-text">Education</span> 
         </h2>
 
         <div className="relative">
@@ -40,23 +41,25 @@ const Education = () => {
 
                   {/* Content */}
                   <div className={`md:w-[calc(50%-3rem)] ${isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                    <div className="fade-bottom-card bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                    <Fade left={isLeft} right={!isLeft} duration={800} delay={index * 200}>
+                      <div className="glass-card rounded-lg p-6 hover:scale-[1.02] transition-all duration-300">
                       <div className="flex items-start gap-4">
                         <div className="p-2.5 rounded-lg bg-primary/10 border border-primary/20">
                           <GraduationCap className="text-primary" size={22} />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-lg font-bold text-primary mb-1">
-                            {edu.institution}
+                          <h3 className="text-lg font-medium text-primary mb-1">
+                            {edu.institution} 
                           </h3>
-                          <p className="text-foreground font-medium mb-3 text-sm">{edu.degree}</p>
+                          <p className="text-foreground font-normal mb-3 text-sm">{edu.degree} </p>
                           <div className="flex flex-col gap-1.5 text-sm text-muted-foreground">
-                            <p>{edu.duration} • {edu.location}</p>
-                            <p className="text-primary/90 font-semibold">{edu.grade}</p>
+                            <p>{edu.duration} • {edu.location} </p>
+                            <p className="text-primary/90 font-normal">{edu.grade} </p>
                           </div>
                         </div>
                       </div>
-                    </div>
+                      </div>
+                    </Fade>
                   </div>
                 </div>
               );

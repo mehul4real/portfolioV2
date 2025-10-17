@@ -1,4 +1,5 @@
-import { Briefcase, MapPin, Calendar } from "lucide-react";
+import { Briefcase, MapPin, Calendar, Plane } from "lucide-react";
+import Fade from 'react-reveal/Fade';
 
 const experiences = [
   {
@@ -36,8 +37,8 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 px-4 relative">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-20 text-center">
-          Professional <span className="text-primary">Experience</span>
+        <h2 className="text-4xl md:text-5xl font-medium mb-20 text-center">
+          Professional <span className="gradient-text">Experience</span> 💼
         </h2>
 
         <div className="relative">
@@ -55,13 +56,14 @@ const Experience = () => {
 
                   {/* Content */}
                   <div className={`md:w-[calc(50%-3rem)] ${isLeft ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                    <div className="fade-bottom-card bg-card/80 backdrop-blur-sm border border-border/50 rounded-lg p-6 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
+                    <Fade left={isLeft} right={!isLeft} duration={800} delay={index * 200}>
+                      <div className="glass-card rounded-lg p-6 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
                       {/* Company & Position */}
                       <div className="mb-4">
-                        <h3 className="text-xl font-bold text-primary mb-1">
+                        <h3 className="text-xl font-medium text-primary mb-1">
                           {exp.company}
                         </h3>
-                        <p className="text-lg font-semibold text-foreground mb-3">{exp.position}</p>
+                        <p className="text-lg font-normal text-foreground mb-3">{exp.position}</p>
                         
                         <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1.5">
@@ -75,7 +77,7 @@ const Experience = () => {
                         </div>
                         {exp.secondLocation && (
                           <div className="flex items-center gap-1.5 text-sm text-muted-foreground mt-1">
-                            <MapPin size={16} className="text-primary/70" />
+                            <Plane size={16} className="text-primary/70" />
                             <span>{exp.secondLocation}</span>
                           </div>
                         )}
@@ -102,7 +104,8 @@ const Experience = () => {
                           </span>
                         ))}
                       </div>
-                    </div>
+                      </div>
+                    </Fade>
                   </div>
                 </div>
               );

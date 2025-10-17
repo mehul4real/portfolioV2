@@ -36,10 +36,10 @@ const SocialLinks = () => {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className={`p-3 rounded-full glass-card transition-all duration-300 hover:scale-110 hover:shadow-glow ${link.hoverColor}`}
+          className={`p-4 rounded-full glass-card transition-all duration-300 hover:scale-110 hover:shadow-glow ${link.hoverColor} group`}
           aria-label={link.name}
         >
-          <link.icon size={20} />
+          <link.icon size={22} className="transition-transform duration-300 group-hover:scale-110" />
         </a>
       ))}
     </div>
