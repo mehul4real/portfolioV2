@@ -7,15 +7,15 @@ const Hero = () => {
       {/* Interactive animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Large floating orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-primary/30 to-secondary/20 rounded-full blur-3xl animate-float bg-shape"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-secondary/30 to-accent/20 rounded-full blur-3xl animate-float bg-shape" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-br from-accent/20 to-primary/20 rounded-full blur-3xl animate-float bg-shape" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 hero-orb-1 rounded-full blur-3xl animate-float bg-shape"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 hero-orb-2 rounded-full blur-3xl animate-float bg-shape" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/3 w-64 h-64 hero-orb-3 rounded-full blur-3xl animate-float bg-shape" style={{ animationDelay: '4s' }}></div>
         
         {/* Geometric shapes */}
-        <div className="absolute top-20 right-20 w-32 h-32 border-2 border-primary/30 rotate-45 animate-float bg-shape" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-20 left-20 w-24 h-24 border-2 border-secondary/30 rounded-full animate-float bg-shape" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/3 left-1/2 w-16 h-16 bg-gradient-to-br from-accent/40 to-primary/40 rotate-12 animate-float bg-shape" style={{ animationDelay: '2.5s' }}></div>
-        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border-2 border-accent/30 rounded-lg rotate-45 animate-float bg-shape" style={{ animationDelay: '3.5s' }}></div>
+        <div className="absolute top-20 right-20 w-32 h-32 border-2 border-primary-soft rotate-45 animate-float bg-shape" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-20 left-20 w-24 h-24 border-2 border-secondary-soft rounded-full animate-float bg-shape" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/3 left-1/2 w-16 h-16 hero-shape rotate-12 animate-float bg-shape" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute bottom-1/3 right-1/4 w-20 h-20 border-2 border-accent-soft rounded-lg rotate-45 animate-float bg-shape" style={{ animationDelay: '3.5s' }}></div>
       </div>
 
       <div className="max-w-5xl mx-auto text-center relative z-10 animate-slide-up">
@@ -34,10 +34,10 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center mb-8">
-          <Button asChild size="lg" className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 text-primary-foreground shadow-glow transition-all duration-300 hover:scale-105">
+          <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-glow transition-all duration-300 hover:scale-105">
             <a href="#contact">Get In Touch</a>
           </Button>
-          <Button asChild variant="outline" size="lg" className="border-primary/50 hover:bg-primary/10 hover:border-secondary/70 transition-all duration-300 hover:scale-105">
+          <Button asChild variant="outline" size="lg" className="border-primary-soft hover:bg-primary/10 hover:border-secondary-soft transition-all duration-300 hover:scale-105">
             <a href="#experience">View Experience</a>
           </Button>
         </div>

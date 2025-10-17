@@ -42,7 +42,7 @@ const Header = () => {
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
             >
               {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-primary group-hover:w-full transition-all duration-300"></span>
             </a>
           ))}
         </nav>

@@ -29,17 +29,17 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className="glass-card rounded-2xl p-6 animate-slide-up hover:border-secondary/70 transition-all duration-500 hover:shadow-glow group"
+              className="glass-card rounded-2xl p-6 animate-slide-up hover:border-secondary/70 transition-all duration-500 shadow-glow group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              <h3 className="text-xl font-bold mb-4 gradient-text">
                 {category.category}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
                   <span
                     key={i}
-                    className="px-4 py-2 rounded-lg text-sm bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary/20 hover:to-accent/20 border border-primary/30 hover:border-secondary/60 transition-all duration-300 cursor-default hover:scale-105"
+                    className="skill-tag"
                   >
                     {skill}
                   </span>

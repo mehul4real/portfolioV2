@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -57,6 +58,10 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Theme-specific border colors
+        "border-primary-soft": "hsl(var(--border-primary))",
+        "border-secondary-soft": "hsl(var(--border-secondary))",
+        "border-accent-soft": "hsl(var(--border-accent))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -87,5 +92,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindcssAnimate],
 } satisfies Config;
