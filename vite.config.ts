@@ -15,5 +15,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: mode === "production" ? "/portfolioV2" : "/",
+  base: mode === "production" ? "/portfolioV2/" : "/",
 }));
