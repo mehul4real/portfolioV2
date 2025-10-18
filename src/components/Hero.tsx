@@ -93,7 +93,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 pt-20 md:pt-0">
       {/* Animated particle canvas */}
       <canvas
         ref={canvasRef}
@@ -180,38 +180,38 @@ const Hero = () => {
         />
       </div>
 
-      <div className="max-w-5xl mx-auto text-center relative z-10 animate-slide-up">
+      <div className="max-w-5xl mx-auto text-center relative z-10 animate-slide-up px-4">
         <div className="mb-6">
-          <h1 className="text-5xl md:text-7xl mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl mb-4 leading-tight">
             <span className="opacity-70 font-normal">Hi there, I'm </span>
             <span className="gradient-text font-medium">Mehul Saxena</span>
           </h1>
-          <h2 className="text-2xl md:text-4xl font-normal text-muted-foreground mb-6">
+          <h2 className="text-xl sm:text-2xl md:text-4xl font-normal text-muted-foreground mb-6">
             Senior Software Engineer
           </h2>
         </div>
 
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed px-2">
           A passionate Full-Stack Developer 🚀  with 5 years of experience building scalable solutions, pushing boundaries, 
           optimizing performance, and enhancing user experiences. Let's build something extraordinary together! ⚡
         </p>
 
-        <div className="flex flex-wrap gap-4 justify-center mb-8">
-          <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-glow transition-all duration-300 hover:scale-105">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 px-4">
+          <Button asChild size="lg" className="bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-glow transition-all duration-300 hover:scale-105 w-full sm:w-auto">
             <a href="#contact">GET IN TOUCH</a>
           </Button>
-          <Button asChild variant="secondary" size="lg" className="transition-all duration-300 hover:scale-105">
+          <Button asChild variant="secondary" size="lg" className="transition-all duration-300 hover:scale-105 w-full sm:w-auto">
             <a target="_blank" href="https://drive.google.com/file/d/1PCxqRj-WQIkkaBqhzwMe7YKn4YeiajQQ/view?usp=sharing" download>SEE MY RESUME</a>
           </Button>
         </div>
 
-        <div className="flex flex-wrap gap-6 justify-center text-muted-foreground mb-6">
-          <a href="mailto:mehulsaxena.dev@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
-            <Mail size={20} />
+        <div className="flex flex-col sm:flex-row gap-6 justify-center text-muted-foreground mb-6 text-sm sm:text-base">
+          <a href="mailto:mehulsaxena.dev@gmail.com" className="flex items-center justify-center gap-2 hover:text-primary transition-colors">
+            <Mail size={18} />
             <span>mehulsaxena.dev@gmail.com</span>
           </a>
-          <a href="tel:7000301634" className="flex items-center gap-2 hover:text-secondary transition-colors">
-            <Phone size={20} />
+          <a href="tel:7000301634" className="flex items-center justify-center gap-2 hover:text-secondary transition-colors">
+            <Phone size={18} />
             <span>+91 7000301634</span>
           </a>
         </div>
