@@ -424,20 +424,24 @@ This file now imports from our centralized theme configuration.
     display: flex;
     align-items: center;
     animation: fadeInUp 1.5s ease-out 1s both;
+    padding: 0 1rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
 
   .splash-title {
     font-family: "Agustina", "Brush Script MT", cursive;
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     font-weight: normal;
-    margin: 0 0.75rem;
+    margin: 0 0.5rem;
     color: hsl(var(--foreground));
     opacity: 0.9;
+    white-space: nowrap;
   }
 
   .grey-color {
     color: hsl(var(--muted-foreground));
-    font-size: 2.5rem;
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
     font-weight: 300;
   }
 
