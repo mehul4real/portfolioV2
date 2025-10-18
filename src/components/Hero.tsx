@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import { useMousePosition } from "@/hooks/use-mouse-position";
 import { useEffect, useRef } from "react";
 import SocialLinks from "./SocialLinks";
+import resumePdf from "@/assets/Mehul_Saxena_Resume.pdf";
 
 const Hero = () => {
   const mousePosition = useMousePosition();
@@ -201,7 +202,7 @@ const Hero = () => {
             <a href="#contact">GET IN TOUCH</a>
           </Button>
           <Button asChild variant="secondary" size="lg" className="transition-all duration-300 hover:scale-105 w-full sm:w-auto">
-            <a target="_blank" href="https://drive.google.com/file/d/1PCxqRj-WQIkkaBqhzwMe7YKn4YeiajQQ/view?usp=sharing" download>SEE MY RESUME</a>
+            <a href={resumePdf} download="Mehul_Saxena_Resume.pdf">SEE MY RESUME</a>
           </Button>
         </div>
 
