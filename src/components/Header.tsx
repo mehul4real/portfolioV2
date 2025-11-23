@@ -4,6 +4,7 @@ import { useTheme } from "./theme-provider";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
@@ -54,7 +55,6 @@ const Header = () => {
               </a>
             ))}
           </nav>
-          
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
@@ -83,9 +83,8 @@ const Header = () => {
               <Sun size={16} className="text-primary" />
             )}
           </button>
-          
           {/* Mobile Menu Button */}
-          <button className="text-foreground">
+          <button className="text-foreground" onClick={() => setMobileMenuOpen((v) => !v)} aria-label="Open mobile menu">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -102,6 +101,32 @@ const Header = () => {
           </button>
         </div>
       </div>
+
+      {/* Mobile Nav Dropdown */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-black/40" onClick={() => setMobileMenuOpen(false)}>
+          <div
+            className="fixed top-16 left-0 right-0 w-full bg-background rounded-b-2xl shadow-lg p-0 flex flex-col animate-slide-down"
+            onClick={e => e.stopPropagation()}
+          >
+            {navLinks.map((link, idx) => (
+              <>
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-base font-normal text-foreground hover:text-primary transition-colors px-4 py-3 first:rounded-t-none last:rounded-b-2xl block text-center"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.name}
+                </a>
+                {idx < navLinks.length - 1 && (
+                  <div className="mx-6 h-px bg-border/70 rounded-full" />
+                )}
+              </>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 };
