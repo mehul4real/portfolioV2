@@ -33,15 +33,15 @@ const Contact = () => {
 
           <div className="mt-8 pt-8 border-t border-border">
             <div className="flex flex-col md:flex-row gap-4 justify-center text-muted-foreground">
-              <div className="flex items-center gap-2 justify-center">
+              <a href="mailto:mehulsaxena.dev@gmail.com"  className="flex items-center gap-2 justify-center">
                 <Mail size={18} className="text-primary" />
                 <span>mehulsaxena.dev@gmail.com</span>
-              </div>
+              </a>
               <div className="hidden md:block text-muted-foreground/50">|</div>
-              <div className="flex items-center gap-2 justify-center">
+              <a href="tel:7000301634" className="flex items-center gap-2 justify-center">
                 <Phone size={18} className="text-primary" />
                 <span>+91 7000301634</span>
-              </div>
+              </a>
             </div>
           </div>
         </div>

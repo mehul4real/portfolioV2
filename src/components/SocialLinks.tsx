@@ -9,6 +9,12 @@ const SocialLinks = () => {
       hoverColor: "hover:text-secondary",
     },
     {
+      name: "GitHub",
+      icon: Github,
+      url: "https://github.com/mehul4real",
+      hoverColor: "hover:text-primary",
+    },
+    {
       name: "Email",
       icon: Mail,
       url: "mailto:mehulsaxena.dev@gmail.com",
@@ -19,12 +25,6 @@ const SocialLinks = () => {
       icon: Twitter,
       url: "https://twitter.com/whoisMehul",
       hoverColor: "hover:text-accent",
-    },
-    {
-      name: "GitHub",
-      icon: Github,
-      url: "https://github.com/mehul4real",
-      hoverColor: "hover:text-primary",
     },
   ];
 
